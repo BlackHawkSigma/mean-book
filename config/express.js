@@ -4,10 +4,13 @@ var config = require('./config'),
   compress = require('compression'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
-  session = require('express-session');
+  session = require('express-session'),
+  favicon = require('serve-favicon');
 
 module.exports = function() {
   var app = express();
+
+  app.use(favicon('./public/img/favicon.ico'));
 
   if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
