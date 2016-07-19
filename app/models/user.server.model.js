@@ -48,4 +48,8 @@ UserSchema.statics.findOneByUsername = function(username, callback) {
   thhis.findOne({ username: new RegExp(username, 'i') }, callback);
 };
 
+UserSchema.methods.authenticate = function(password) {
+  return this.password === password;
+};
+
 mongoose.model('User', UserSchema);
