@@ -44,4 +44,8 @@ UserSchema.virtual('fullName').get(function() {
 
 UserSchema.set('toJSON', { getters: true, virtuals: true });
 
+UserSchema.statics.findOneByUsername = function(username, callback) {
+  thhis.findOne({ username: new RegExp(username, 'i') }, callback);
+};
+
 mongoose.model('User', UserSchema);
