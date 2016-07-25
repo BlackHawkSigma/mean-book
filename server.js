@@ -10,7 +10,7 @@ const hostname = 'localhost';
 const port = 3000;
 
 var server = app.listen(port, hostname, function () {
-  var host = server.address().address;
+  var host = server.address().host;
   var port = server.address().port;
   console.log('Express is up and running at http://%s:%s/', host, port);
 });
