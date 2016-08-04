@@ -8,7 +8,7 @@ var db = mongoose();
 var app = express();
 var passport = passport();
 
-const PORT = 3000;
+const PORT = 80;
 
 app.listen(PORT, function () {
   console.log('Express is up and running at http://localhost:%s/', PORT);
