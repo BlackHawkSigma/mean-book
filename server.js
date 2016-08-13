@@ -5,12 +5,12 @@ var mongoose = require('./config/mongoose'),
   passport = require('./config/passport.js');
 
 var db = mongoose();
-var app = express();
+var app = express(db);
 var passport = passport();
 
 const PORT = 80;
 
 app.listen(PORT, function () {
-  console.log('Express is up and running at http://localhost:%s/', PORT);
+  console.log('Server is up and running at http://localhost:%s/', PORT);
 });
 module.exports = app;
