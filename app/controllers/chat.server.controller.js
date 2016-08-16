@@ -12,14 +12,16 @@ module.exports = function(io, socket) {
     message.username = socket.request.user.username;
 
     io.emit('chatMessage', message);
+    console.log('CHAT ' + socket.request.user.username + ': ' + message.text);
   });
 
   socket.on('disconnect', function() {
     io.emit('chatMessage', {
       type: 'status',
-      text: 'disconnect',
+      text: 'disconnected',
       created: Date.now(),
       username: socket.request.user.username
     });
+    console.log('CHAT ' + socket.request.user.username + ' disconnected');
   });
 };
